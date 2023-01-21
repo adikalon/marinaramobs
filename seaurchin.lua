@@ -1,3 +1,5 @@
+local S = minetest.get_translator("marinaramobs")
+
 mobs:register_mob("marinaramobs:seaurchin", {
 stepheight = 1,
 	type = "animal",
@@ -32,6 +34,7 @@ stepheight = 1,
 	drops = {
 		{name = "marinaramobs:seaurchin", chance = 1, min = 0, max = 1},
 	},
+        stay_near = {{"marinara:sand_with_alage", "marinara:sand_with_seagrass", "default:sand_with_kelp", "marinara:sand_with_kelp", "marinara:reed_root", "flowers:waterlily_waving", "naturalbiomes:waterlily", "default:clay", "marinara:softcoral_red", "marinara:softcoral_white", "marinara:softcoral_green", "marinara:softcoral_white", "marinara:softcoral_green", "default:coral_cyan", "default:coral_pink", "default:coral_green"}, 5},
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
@@ -46,6 +49,11 @@ stepheight = 1,
 		walk_end = 100,
 		punch_start = 0,
 		punch_end = 100,
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	fly_in = {"default:water_source", "default:water_flowing"},
 	floats = 0,
@@ -57,7 +65,7 @@ stepheight = 1,
 
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 0, 5, 50, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 25, 0, false, nil) then return end
 	end,
 })
 
@@ -76,13 +84,13 @@ mobs:spawn({
 end
 
 
-mobs:register_egg("marinaramobs:seaurchin", ("Seaurchin"), "aseaurchin.png", 0)
+mobs:register_egg("marinaramobs:seaurchin", S("Seaurchin"), "aseaurchin.png", 0)
 
 
 mobs:alias_mob("marinaramobs:seaurchin", "marinaramobs:seaurchin") -- compatibility
 
 minetest.register_craftitem(":marinaramobs:seaurchin_cooked", {
-	description = ("Cooked Seaurchin"),
+	description = S("Cooked Seaurchin"),
 	inventory_image = "marinaramobs_seaurchin_cooked.png",
 	on_use = minetest.item_eat(8),
 	groups = {food_meat = 1, flammable = 2},

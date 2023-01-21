@@ -1,3 +1,5 @@
+local S = minetest.get_translator("marinaramobs")
+
 mobs:register_mob("marinaramobs:octopus", {
 stepheight = 0.0,
 	type = "monster",
@@ -36,6 +38,7 @@ stepheight = 0.0,
 	runaway = false,
 	jump = false,
 	stepheight = 0.0,
+        stay_near = {{"marinara:bountychest", "marinara:bountychest2", "marinara:bountychest3", "marinara:bountychest4", "marinara:bountychest5", "marinara:bountychest6", "marinara:bountychest7", "marinara:bountychest8", "marinara:bountychest9", "marinara:bountychest10", "marinara:bountychest11", "marinara:bountychest12", "marinara:hardcoral", "marinara:seapocks"}, 4},
 	drops = {
 		{name = "marinaramobs:octopus_raw", chance = 1, min = 0, max = 1},
 		{name = "dye:black", chance = 1, min = 0, max = 1},
@@ -54,7 +57,11 @@ stepheight = 0.0,
 		punch_end = 300,
                 shoot_start = 200,
 		shoot_end = 300,
-
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	fly_in = {"default:water_source", "default:river_water_source", "default:water_flowing"},
 	floats = 0,
@@ -68,7 +75,7 @@ stepheight = 0.0,
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 5, 50, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 25, 0, false, nil) then return end
 	end,
 })
 
@@ -84,7 +91,7 @@ mobs:spawn({
 	max_height = 0,
 })
 
-mobs:register_egg("marinaramobs:octopus", ("Octopus"), "aoctopus.png")
+mobs:register_egg("marinaramobs:octopus", S("Octopus"), "aoctopus.png")
 
 mobs:register_arrow("marinaramobs:octopusink", {
 	visual = "sprite",
@@ -114,7 +121,7 @@ mobs:register_arrow("marinaramobs:octopusink", {
 
 -- raw octopus
 minetest.register_craftitem("marinaramobs:octopus_raw", {
-	description = ("Raw Octopus"),
+	description = S("Raw Octopus"),
 	inventory_image = "marinaramobs_octopus_raw.png",
 	on_use = minetest.item_eat(3),
 	groups = {food_meat_raw = 1, flammable = 2},
@@ -122,7 +129,7 @@ minetest.register_craftitem("marinaramobs:octopus_raw", {
 
 -- cooked octopus
 minetest.register_craftitem("marinaramobs:octopus_cooked", {
-	description = ("Cooked Octopus"),
+	description = S("Cooked Octopus"),
 	inventory_image = "marinaramobs_octopus_cooked.png",
 	on_use = minetest.item_eat(5),
 	groups = {food_meat = 1, flammable = 2},

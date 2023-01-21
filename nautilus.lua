@@ -1,3 +1,6 @@
+local S = minetest.get_translator("marinaramobs")
+local random = math.random
+
 mobs:register_mob("marinaramobs:nautilus", {
 stepheight = 0.0,
 	type = "animal",
@@ -34,13 +37,18 @@ stepheight = 0.0,
         air_damage = 1,
 	lava_damage = 4,
 	light_damage = 0,
+        stay_near = {{"marinara:sand_with_alage", "marinara:sand_with_seagrass", "default:sand_with_kelp", "marinara:sand_with_kelp", "marinara:reed_root", "flowers:waterlily_waving", "naturalbiomes:waterlily", "default:clay", "marinara:softcoral_red", "marinara:softcoral_white", "marinara:softcoral_green", "marinara:softcoral_white", "marinara:softcoral_green", "default:coral_cyan", "default:coral_pink", "default:coral_green"}, 4},
 	animation = {
 		speed_normal = 50,
 		stand_start = 0,
 		stand_end = 100,
 		fly_start = 100, -- swim animation
 		fly_end = 200,
-		-- 50-70 is slide/water idle
+		die_start = 100,
+		die_end = 200,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	fly_in = {"default:water_source", "default:river_water_source", "default:water_flowing", "default:river_water_flowing"},
 	floats = 0,
@@ -55,7 +63,7 @@ stepheight = 0.0,
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 5, 50, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 15, 25, 0, false, nil) then return end
 	end,
 })
 
@@ -71,13 +79,43 @@ mobs:spawn({
 	min_height = -30,
 	max_height = 0,
 	day_toggle = true,
-})
+
+		on_spawn = function(self, pos)
+
+			local nods = minetest.find_nodes_in_area_under_air(
+				{x = pos.x - 4, y = pos.y - 3, z = pos.z - 4},
+				{x = pos.x + 4, y = pos.y + 3, z = pos.z + 4},
+				{"default:water_source", "default:river_water_source"})
+
+			if nods and #nods > 0 then
+
+				-- min herd of 3
+				local iter = math.min(#nods, 3)
+
+-- print("--- nautilus at", minetest.pos_to_string(pos), iter)
+
+				for n = 1, iter do
+
+					local pos2 = nods[random(#nods)]
+					local kid = random(4) == 1 and true or nil
+
+					pos2.y = pos2.y + 2
+
+					if minetest.get_node(pos2).name == "air" then
+
+						mobs:add_mob(pos2, {
+							name = "marinaramobs:nautilus", child = kid})
+					end
+				end
+			end
+		end
+	})
 end
 
 mobs:register_egg("marinaramobs:nautilus", ("Nautilus"), "anautilus.png")
 
 minetest.register_node("marinaramobs:nautilushell", {
-    description = "Nautilusshell",
+    description = S"Nautilusshell",
     visual_scale = 0.6,
     mesh = "Nautilusshell.b3d",
     tiles = {"marinaramobs_nautilusshell.png"},

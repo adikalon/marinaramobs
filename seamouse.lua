@@ -1,3 +1,5 @@
+local S = minetest.get_translator("marinaramobs")
+
 mobs:register_mob("marinaramobs:seamouse", {
 stepheight = 1,
 	type = "animal",
@@ -28,6 +30,7 @@ stepheight = 1,
 	jump_height = 6,
 	drops = {
 	},
+        stay_near = {{"marinara:sand_with_alage", "marinara:sand_with_seagrass", "default:sand_with_kelp", "marinara:sand_with_kelp", "marinara:reed_root", "flowers:waterlily_waving", "naturalbiomes:waterlily", "default:clay", "marinara:softcoral_red", "marinara:softcoral_white", "marinara:softcoral_green", "marinara:softcoral_white", "marinara:softcoral_green", "default:coral_cyan", "default:coral_pink", "default:coral_green"}, 5},
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
@@ -40,7 +43,11 @@ stepheight = 1,
 		stand2_end = 300,
 		walk_start = 100,
 		walk_end = 200,
-
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	fly_in = {"default:water_source", "default:water_flowing"},
 	floats = 0,
@@ -51,7 +58,7 @@ stepheight = 1,
 
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 0, 5, 50, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 15, 25, 0, false, nil) then return end
 	end,
 })
 
@@ -71,7 +78,7 @@ mobs:spawn({
 end
 
 
-mobs:register_egg("marinaramobs:seamouse", ("Seamouse"), "aseamouse.png", 0)
+mobs:register_egg("marinaramobs:seamouse", S("Seamouse"), "aseamouse.png", 0)
 
 
 mobs:alias_mob("marinaramobs:seamouse", "marinaramobs:seamouse") -- compatibility
