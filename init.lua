@@ -21,6 +21,15 @@ end
 -- Load support for intllib.
 local path = minetest.get_modpath(minetest.get_current_modname()) .. "/"
 
+marinaramobs.custom_spawn = false
+local input = io.open(path .. "spawn.lua", "r")
+
+if input then
+	marinaramobs.custom_spawn = true
+	input:close()
+	input = nil
+end
+
 local S = minetest.get_translator and minetest.get_translator(minetest.get_current_modname()) or
 		dofile(path .. "intllib.lua")
 
@@ -37,9 +46,8 @@ dofile(path .. "seaurchin.lua") --
 dofile(path .. "starfish.lua") --
 dofile(path .. "hunger.lua") --
 
-
-
-
-
+if marinaramobs.custom_spawn then
+	dofile(path .. "spawn.lua")
+end
 
 print (S("[MOD] Caves loaded"))

@@ -34,7 +34,7 @@ stepheight = 1,
 	drops = {
 		{name = "marinaramobs:seaurchin", chance = 1, min = 0, max = 1},
 	},
-        stay_near = {{"marinara:sand_with_alage", "marinara:sand_with_seagrass", "default:sand_with_kelp", "marinara:sand_with_kelp", "marinara:reed_root", "flowers:waterlily_waving", "naturalbiomes:waterlily", "default:clay", "marinara:softcoral_red", "marinara:softcoral_white", "marinara:softcoral_green", "marinara:softcoral_white", "marinara:softcoral_green", "default:coral_cyan", "default:coral_pink", "default:coral_green"}, 5},
+	stay_near = {{"marinara:sand_with_alage", "marinara:sand_with_seagrass", "default:sand_with_kelp", "marinara:sand_with_kelp", "marinara:reed_root", "flowers:waterlily_waving", "naturalbiomes:waterlily", "default:clay", "marinara:softcoral_red", "marinara:softcoral_white", "marinara:softcoral_green", "marinara:softcoral_white", "marinara:softcoral_green", "default:coral_cyan", "default:coral_pink", "default:coral_green"}, 5},
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
@@ -69,18 +69,18 @@ stepheight = 1,
 	end,
 })
 
-if not mobs.custom_spawn_marinaramobs then
-mobs:spawn({
-	name = "marinaramobs:seaurchin",
-	nodes = {"default:water_source"},
-	neighbors = {"marinara:coastrock_alage"},
-	min_light = 0,
-	interval = 60,
-	chance = 2, -- 15000
-	active_object_count = 2,
-	min_height = -30,
-	max_height = 0,
-})
+if not marinaramobs.custom_spawn then
+	mobs:spawn({
+		name = "marinaramobs:seaurchin",
+		nodes = {"default:water_source"},
+		neighbors = {"marinara:coastrock_alage"},
+		min_light = 0,
+		interval = 60,
+		chance = 2, -- 15000
+		active_object_count = 2,
+		min_height = -30,
+		max_height = 0,
+	})
 end
 
 

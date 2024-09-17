@@ -4,10 +4,10 @@ mobs:register_mob("marinaramobs:jellyfish", {
 stepheight = 0.0,
 	type = "monster",
 	passive = false,
-        attack_type = "dogfight",
+	attack_type = "dogfight",
 	attack_animals = true,
 	reach = 2,
-        damage = 4,
+	damage = 4,
 	hp_min = 30,
 	hp_max = 95,
 	armor = 100,
@@ -32,9 +32,9 @@ stepheight = 0.0,
 	stepheight = 0.0,
 	drops = {
 	},
-        stay_near = {{"marinara:sand_with_alage", "marinara:sand_with_seagrass", "default:sand_with_kelp", "marinara:sand_with_kelp", "marinara:reed_root", "flowers:waterlily_waving", "naturalbiomes:waterlily", "default:clay", "marinara:softcoral_red", "marinara:softcoral_white", "marinara:softcoral_green", "marinara:softcoral_white", "marinara:softcoral_green", "default:coral_cyan", "default:coral_pink", "default:coral_green"}, 2},
+	stay_near = {{"marinara:sand_with_alage", "marinara:sand_with_seagrass", "default:sand_with_kelp", "marinara:sand_with_kelp", "marinara:reed_root", "flowers:waterlily_waving", "naturalbiomes:waterlily", "default:clay", "marinara:softcoral_red", "marinara:softcoral_white", "marinara:softcoral_green", "marinara:softcoral_white", "marinara:softcoral_green", "default:coral_cyan", "default:coral_pink", "default:coral_green"}, 2},
 	water_damage = 0,
-        air_damage = 1,
+	air_damage = 1,
 	lava_damage = 4,
 	light_damage = 0,
 	animation = {
@@ -67,17 +67,17 @@ stepheight = 0.0,
 	end,
 })
 
-if not mobs.custom_spawn_marinaramobs then
-mobs:spawn({
-	name = "marinaramobs:jellyfish",
-	nodes = {"default:water_source"},
-	neighbors = {"marinara:sand_with_kelp", "default:sand_with_kelp"},
-	min_light = 0,
-	interval = 60,
-	chance = 2, -- 15000
-	min_height = -30,
-	max_height = 0,
-})
+if not marinaramobs.custom_spawn then
+	mobs:spawn({
+		name = "marinaramobs:jellyfish",
+		nodes = {"default:water_source"},
+		neighbors = {"marinara:sand_with_kelp", "default:sand_with_kelp"},
+		min_light = 0,
+		interval = 60,
+		chance = 2, -- 15000
+		min_height = -30,
+		max_height = 0,
+	})
 end
 
 mobs:register_egg("marinaramobs:jellyfish", S("Jellyfish"), "ajellyfish.png")

@@ -7,7 +7,7 @@ stepheight = 0.0,
 	attack_animals = true,
 	attack_npcs = true,
 	reach = 2,
-        damage = 5,
+	damage = 5,
 	attack_type = "dogshoot",
 	dogshoot_switch = 1,
 	dogshoot_count_max = 3,
@@ -32,19 +32,19 @@ stepheight = 0.0,
 	},
 	walk_velocity = 1,
 	run_velocity = 2,
-        fly = true,
+	fly = true,
 	fly_in = "default:water_source", "default:river_water_source", "default:water_flowing", "default:river_water_flowing",
 	fall_speed = 0,
 	runaway = false,
 	jump = false,
 	stepheight = 0.0,
-        stay_near = {{"marinara:bountychest", "marinara:bountychest2", "marinara:bountychest3", "marinara:bountychest4", "marinara:bountychest5", "marinara:bountychest6", "marinara:bountychest7", "marinara:bountychest8", "marinara:bountychest9", "marinara:bountychest10", "marinara:bountychest11", "marinara:bountychest12", "marinara:hardcoral", "marinara:seapocks"}, 4},
+	stay_near = {{"marinara:bountychest", "marinara:bountychest2", "marinara:bountychest3", "marinara:bountychest4", "marinara:bountychest5", "marinara:bountychest6", "marinara:bountychest7", "marinara:bountychest8", "marinara:bountychest9", "marinara:bountychest10", "marinara:bountychest11", "marinara:bountychest12", "marinara:hardcoral", "marinara:seapocks"}, 4},
 	drops = {
 		{name = "marinaramobs:octopus_raw", chance = 1, min = 0, max = 1},
 		{name = "dye:black", chance = 1, min = 0, max = 1},
 	},
 	water_damage = 0,
-        air_damage = 1,
+	air_damage = 1,
 	lava_damage = 4,
 	light_damage = 0,
 	animation = {
@@ -55,7 +55,7 @@ stepheight = 0.0,
 		fly_end = 200,
 		punch_start = 200,
 		punch_end = 300,
-                shoot_start = 200,
+		shoot_start = 200,
 		shoot_end = 300,
 		die_start = 200,
 		die_end = 300,
@@ -79,17 +79,18 @@ stepheight = 0.0,
 	end,
 })
 
-if not mobs.custom_spawn_marinaramobs then
-mobs:spawn({
-	name = "marinaramobs:octopus",
-	nodes = {"default:water_source"},
-	neighbors = {"marinara:bountychest", "marinara:bountychest2", "marinara:bountychest3", "marinara:bountychest4", "marinara:bountychest5", "marinara:bountychest6", "marinara:bountychest7", "marinara:bountychest8", "marinara:bountychest9", "marinara:bountychest10", "marinara:bountychest11"},
-	min_light = 0,
-	interval = 60,
-	chance = 2, -- 15000
-	min_height = -30,
-	max_height = 0,
-})
+if not marinaramobs.custom_spawn then
+	mobs:spawn({
+		name = "marinaramobs:octopus",
+		nodes = {"default:water_source"},
+		neighbors = {"marinara:bountychest", "marinara:bountychest2", "marinara:bountychest3", "marinara:bountychest4", "marinara:bountychest5", "marinara:bountychest6", "marinara:bountychest7", "marinara:bountychest8", "marinara:bountychest9", "marinara:bountychest10", "marinara:bountychest11"},
+		min_light = 0,
+		interval = 60,
+		chance = 2, -- 15000
+		min_height = -30,
+		max_height = 0,
+	})
+end
 
 mobs:register_egg("marinaramobs:octopus", S("Octopus"), "aoctopus.png")
 
@@ -141,4 +142,3 @@ minetest.register_craft({
 	recipe = "marinaramobs:octopus_raw",
 	cooktime = 5,
 })
-end
