@@ -1,4 +1,4 @@
-local S = minetest.get_translator("marinaramobs")
+local S = marinaramobs.S
 
 mobs:register_mob("marinaramobs:seaslug", {
 stepheight = 1,

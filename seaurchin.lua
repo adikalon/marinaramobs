@@ -1,4 +1,4 @@
-local S = minetest.get_translator("marinaramobs")
+local S = marinaramobs.S
 
 mobs:register_mob("marinaramobs:seaurchin", {
 stepheight = 1,
@@ -58,7 +58,7 @@ stepheight = 1,
 	fly_in = {"default:water_source", "default:water_flowing"},
 	floats = 0,
 	follow = {"marinara:seagrass", "marinara:seagrass2", "marinara:sand_with_seagrass",
-		"marinara:sand_with_seagrass2", "marinara:alage", "marinara:sand_with_alage", "default:kelp", "default:sand_with_kelp", "animalworld:rawfish", "mobs_fish:tropical", "mobs:clownfish_raw", 
+		"marinara:sand_with_seagrass2", "marinara:alage", "marinara:sand_with_alage", "default:kelp", "default:sand_with_kelp", "animalworld:rawfish", "mobs_fish:tropical", "mobs:clownfish_raw",
 "mobs:bluefish_raw", "fishing:bait_worm", "fishing:clownfish_raw", "fishing:bluewhite_raw", "fishing:exoticfish_raw", "fishing:fish_raw", "fishing:carp_raw", "fishing:perch_raw", "water_life:meat_raw", "fishing:shark_raw", "fishing:pike_raw", "marinaramobs:octopus_raw", "marinaramobs:raw_exotic_fish"},
 	view_range = 5,
 	on_rightclick = function(self, clicker)
@@ -102,5 +102,3 @@ minetest.register_craft({
 	recipe = "marinaramobs:seaurchin",
 	cooktime = 2,
 })
-
-

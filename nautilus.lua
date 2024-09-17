@@ -1,4 +1,4 @@
-local S = minetest.get_translator("marinaramobs")
+local S = marinaramobs.S
 local random = math.random
 
 mobs:register_mob("marinaramobs:nautilus", {
@@ -112,7 +112,7 @@ mobs:spawn({
 	})
 end
 
-mobs:register_egg("marinaramobs:nautilus", ("Nautilus"), "anautilus.png")
+mobs:register_egg("marinaramobs:nautilus", S("Nautilus"), "anautilus.png")
 
 minetest.register_node("marinaramobs:nautilushell", {
     description = S"Nautilusshell",

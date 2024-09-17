@@ -1,4 +1,4 @@
-local S = minetest.get_translator("marinaramobs")
+local S = marinaramobs.S
 
 mobs:register_mob("marinaramobs:octopus", {
 stepheight = 0.0,
@@ -10,8 +10,8 @@ stepheight = 0.0,
         damage = 5,
 	attack_type = "dogshoot",
 	dogshoot_switch = 1,
-	dogshoot_count_max = 3, 
-	dogshoot_count2_max = 5, 
+	dogshoot_count_max = 3,
+	dogshoot_count2_max = 5,
 	shoot_interval = 1,
 	arrow = "marinara:octopusink",
 	shoot_offset = 0.8,

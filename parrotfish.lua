@@ -1,4 +1,4 @@
-local S = minetest.get_translator("marinaramobs")
+local S = marinaramobs.S
 local random = math.random
 
 mobs:register_mob("marinaramobs:parrotfish", {
@@ -46,7 +46,7 @@ stepheight = 0.0,
 		stand2_speed = 50,
 		stand2_start = 100,
 		stand2_end = 200,
-		fly_start = 200, 
+		fly_start = 200,
 		fly_end = 300,
 		die_start = 200,
 		die_end = 300,
@@ -140,4 +140,3 @@ minetest.register_craft({
 	recipe = "marinaramobs:raw_exotic_fish",
 	cooktime = 5,
 })
-

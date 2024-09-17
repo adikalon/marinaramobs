@@ -1,4 +1,4 @@
-local S = minetest.get_translator("marinaramobs")
+local S = marinaramobs.S
 
 mobs:register_mob("marinaramobs:starfish", {
 stepheight = 1,
@@ -52,7 +52,7 @@ stepheight = 1,
 	},
 	fly_in = {"default:water_source", "default:water_flowing"},
 	floats = 0,
-	follow = {"animalworld:rawfish", "mobs_fish:tropical", "mobs:clownfish_raw", 
+	follow = {"animalworld:rawfish", "mobs_fish:tropical", "mobs:clownfish_raw",
 "mobs:bluefish_raw", "fishing:bait_worm", "fishing:clownfish_raw", "fishing:bluewhite_raw", "fishing:exoticfish_raw", "fishing:fish_raw", "fishing:carp_raw", "fishing:perch_raw", "water_life:meat_raw", "fishing:shark_raw", "fishing:pike_raw", "marinaramobs:octopus_raw", "marinaramobs:raw_exotic_fish"},
 	view_range = 5,
 	on_rightclick = function(self, clicker)
@@ -70,7 +70,7 @@ mobs:spawn({
 	neighbors = {"marinara:coastrock"},
 	min_light = 0,
 	interval = 60,
-	chance = 2, 
+	chance = 2,
 	active_object_count = 3,
 	min_height = -30,
 	max_height = 0,
@@ -85,7 +85,7 @@ mobs:alias_mob("marinaramobs:starfish", "marinaramobs:starfish") -- compatibilit
 minetest.register_craft({
 	output = "marinaramobs:starfishmobile",
 	type = "shapeless",
-	recipe = 
+	recipe =
 		{"marinaramobs:starfish", "farming:string"}
 
 })
