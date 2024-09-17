@@ -123,7 +123,7 @@ minetest.register_craftitem(":marinaramobs:raw_exotic_fish", {
 	description = S("Raw Exotic Fish"),
 	inventory_image = "marinaramobs_exotic_fish_raw.png",
 	on_use = minetest.item_eat(3),
-	groups = {food_meat_raw = 1, flammable = 2},
+	groups = {food_meat_raw = 1, flammable = 2, eatable = 3},
 })
 
 -- cooked fish
@@ -131,7 +131,7 @@ minetest.register_craftitem(":marinaramobs:cooked_exotic_fish", {
 	description = S("Cooked Exotic Fish"),
 	inventory_image = "marinaramobs_exotic_fish_cooked.png",
 	on_use = minetest.item_eat(5),
-	groups = {food_meat = 1, flammable = 2},
+	groups = {food_meat = 1, flammable = 2, eatable = 5},
 })
 
 minetest.register_craft({

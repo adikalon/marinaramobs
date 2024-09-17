@@ -93,7 +93,7 @@ minetest.register_craftitem(":marinaramobs:seaurchin_cooked", {
 	description = S("Cooked Seaurchin"),
 	inventory_image = "marinaramobs_seaurchin_cooked.png",
 	on_use = minetest.item_eat(8),
-	groups = {food_meat = 1, flammable = 2},
+	groups = {food_meat = 1, flammable = 2, eatable = 8},
 })
 
 minetest.register_craft({
